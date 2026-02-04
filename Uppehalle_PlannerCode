@@ -1,1 +1,33 @@
+import pandas as pd
 
+# Load the CSV
+df = pd.read_csv("Uppehalle_CSV_short_Instructions.csv")
+
+# Ask user for allergies
+print("Answer y or n for each allergy:\n")
+
+allergies = {
+    "Gluten": input("Are you allergic to gluten? (y/n): ").lower(),
+    "Diary": input("Are you allergic to dairy? (y/n): ").lower(),
+    "Eggs": input("Are you allergic to eggs? (y/n): ").lower(),
+    "Nuts": input("Are you allergic to nuts? (y/n): ").lower(),
+}
+
+# Filter safe recipes
+safe_recipes = df.copy()
+
+for allergy, answer in allergies.items():
+    if answer == "y":
+        # If allergic, only keep recipes that do NOT contain it
+        safe_recipes = safe_recipes[safe_recipes[allergy] == "N"]
+
+# Check if any recipes are left
+if safe_recipes.empty:
+    print("\nNo safe recipes found 😢")
+else:
+    print("\nHere are 3 recipes that are safe for you:\n")
+
+    # Show up to 3 recipes
+    for _, row in safe_recipes.head(3).iterrows():
+        print(f"🍽️ {row['Recipe']}")
+        print(f"Ingredients: {row['Ingredients']}\n")
