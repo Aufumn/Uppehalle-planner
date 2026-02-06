@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the CSV
-df = pd.read_csv("Uppehalle_CSV_short_Instructions.csv")
+df = pd.read_csv("Uppehalle_CSV.csv")
 
 # Ask user for allergies
 print("Answer y or n for each allergy:\n")
@@ -29,5 +29,6 @@ else:
 
     # Show up to 3 recipes
     for _, row in safe_recipes.head(3).iterrows():
-        print(f"🍽️ {row['Recipe']}")
+        print(f"{row['Recipe']}")
         print(f"Ingredients: {row['Ingredients']}\n")
+        print(f"Instructions: {row['Instructions']}\n")
