@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Allergy-Safe Recipes</title>
+</head>
+<body>
+  <h1>Find Safe Recipes</h1>
+
+  <p>Select your allergies:</p>
+
+  <label><input type="checkbox" id="Gluten"> Gluten</label><br>
+  <label><input type="checkbox" id="Dairy"> Dairy</label><br>
+  <label><input type="checkbox" id="Eggs"> Eggs</label><br>
+  <label><input type="checkbox" id="Nuts"> Nuts</label><br><br>
+
+  <button onclick="findRecipes()">Find Recipes</button>
+
+  <h2>Results</h2>
+  <div id="results"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="script.js" defer></script>
+  <script src="script.js"></script>
+</body>
+</html>
