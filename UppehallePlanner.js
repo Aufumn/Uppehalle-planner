@@ -32,8 +32,9 @@ async function loadCSV() {
 
       headers.forEach((header, index) => {
         recipe[header.trim()] = values[index]?.trim();
+        recipe[header.trim()] = values[index]?.trim().replace(/\r/g, "");
       });
-
+   
       recipes.push(recipe);
     }
 
